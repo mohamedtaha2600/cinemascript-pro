@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;800&family=Cairo:wght@400;600;700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-surface: #0a0a0c;
+  --color-surface-dim: #0a0a0c;
+  --color-surface-bright: #1c1e26;
+  --color-surface-container-lowest: #050507;
+  --color-surface-container-low: #0f1015;
+  --color-surface-container: #14161f;
+  --color-surface-container-high: #1a1d28;
+  --color-surface-container-highest: #242838;
+  --color-on-surface: #f3f4f6;
+  --color-on-surface-variant: #9ca3af;
+  --color-primary: #f59e0b;
+  --color-on-primary: #000000;
+  --color-primary-container: #d97706;
+  --color-on-primary-container: #ffffff;
+  --color-background: #0a0a0c;
+  --color-on-background: #f3f4f6;
+
+  --font-mono: 'Courier Prime', monospace;
+  --font-sans: 'Inter', 'Outfit', 'Alexandria', 'Cairo', sans-serif;
+  --font-arabic: 'Alexandria', 'Cairo', sans-serif;
+  --font-courier: 'Courier Prime', monospace;
+}
+
+@layer base {
+  body {
+    background-color: #0a0a0c;
+    color: #f3f4f6;
+    font-family: 'Inter', 'Alexandria', sans-serif;
+    overflow-x: hidden;
+  }
+  [dir="rtl"] {
+    font-family: 'Alexandria', 'Cairo', sans-serif;
+  }
+}
+
+/* Glassmorphism & Cinema Glow Effects */
+.glass-panel {
+  background: rgba(15, 16, 21, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-amber {
+  background: rgba(245, 158, 11, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.glass-panel-blue {
+  background: rgba(59, 130, 246, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+}
+
+.cyan-glow {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #242838;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+.typewriter-cursor {
+  border-bottom: 2px solid #f59e0b;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.font-courier {
+  font-family: 'Courier Prime', monospace;
+}

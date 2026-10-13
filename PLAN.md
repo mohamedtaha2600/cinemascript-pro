@@ -1,0 +1,333 @@
+# CinemaScript Pro - Master Implementation & Feature Plan (PLAN.md)
+
+## Current Active Phase: Master UX Polish, Click-Outside Controls, Dual Language Strict Isolation (AR/EN), & Code Quality
+
+### Tasks Breakdown (100 Detailed Tasks)
+
+#### Group A: UX Interaction, Click-Outside & Keyboard Controls
+- [x] **Task 1: Reusable Click-Outside Hook**
+  - Create `src/hooks/useOnClickOutside.ts` to handle click-outside dismissal cleanly for widgets, menus, and popups.
+- [x] **Task 2: AICore Agent Widget Click-Outside Dismissal**
+  - Update `AICoreAgentWidget.tsx` to close when user clicks anywhere outside the chat window container.
+- [x] **Task 3: AICore Agent Widget Esc Key Dismissal**
+  - Update `AICoreAgentWidget.tsx` to close smoothly when pressing the `Esc` key.
+- [x] **Task 4: Context Menu Click-Outside Dismissal in ProjectsView**
+  - Update `ProjectsView.tsx` so the `MoreVertical` action menu closes when clicking outside.
+- [x] **Task 5: ExportModal Esc & Backdrop Dismissal**
+  - Update `ExportModal.tsx` to handle `Esc` key and backdrop overlay click to close.
+- [x] **Task 6: SettingsModal Esc & Backdrop Dismissal**
+  - Update `SettingsModal.tsx` to handle `Esc` key and backdrop overlay click to close.
+- [x] **Task 7: NewProjectModal Esc & Backdrop Dismissal**
+  - Update `NewProjectModal.tsx` to handle `Esc` key and backdrop overlay click to close.
+- [x] **Task 8: NewSceneModal Esc & Backdrop Dismissal**
+  - Update `NewSceneModal.tsx` to handle `Esc` key and backdrop overlay click to close.
+- [x] **Task 9: Popup Esc Key Dismissal**
+  - Add `Esc` key listener to `CharacterSelectPopup.tsx` and `SluglineSuggestPopup.tsx`.
+- [x] **Task 10: Auto-Focus in NewProjectModal**
+  - Auto-focus the project title input upon opening `NewProjectModal.tsx`.
+- [x] **Task 11: Auto-Focus in NewSceneModal**
+  - Auto-focus the location input upon opening `NewSceneModal.tsx`.
+- [x] **Task 12: Auto-Focus in AICoreAgentWidget**
+  - Auto-focus the chat prompt textarea upon opening `AICoreAgentWidget.tsx`.
+- [x] **Task 13: EditorSceneNavigator Esc Key Dismissal**
+  - Add `Esc` key handler to close `EditorSceneNavigator.tsx` sidebar.
+- [x] **Task 14: Corkboard Card Deselection on Esc**
+  - Pressing `Esc` in `OutlinerCorkboardView.tsx` deselects active selected card.
+- [x] **Task 15: Global Keyboard Shortcuts Handler Polish**
+  - Ensure global keyboard shortcuts in `useKeyboardShortcuts.ts` execute cleanly without conflicting with inputs.
+
+#### Group B: Complete Arabic & English i18n Dictionary Expansion
+- [x] **Task 16: Expand ar.ts Dictionary for AICoreAgentWidget**
+  - Add localized strings for AI Widget status, engine source, prompt placeholders, clear chat, and tooltips.
+- [x] **Task 17: Expand en.ts Dictionary for AICoreAgentWidget**
+  - Add matching English strings for AI Widget.
+- [x] **Task 18: Expand ar.ts Dictionary for SettingsModal**
+  - Add localized strings for MCP tool descriptions, provider settings, API keys, and status badges.
+- [x] **Task 19: Expand en.ts Dictionary for SettingsModal**
+  - Add matching English strings for SettingsModal.
+- [x] **Task 20: Expand ar.ts Dictionary for BibleDatabaseView**
+  - Add localized strings for location cards, time of day, character archetype tags, and filters.
+- [x] **Task 21: Expand en.ts Dictionary for BibleDatabaseView**
+  - Add matching English strings for BibleDatabaseView.
+- [x] **Task 22: Expand ar.ts Dictionary for CharactersView**
+  - Add localized strings for Lead/Supporting/Minor roles, traits, character arcs, and linked scenes.
+- [x] **Task 23: Expand en.ts Dictionary for CharactersView**
+  - Add matching English strings for CharactersView.
+- [x] **Task 24: Expand ar.ts Dictionary for BreakdownReportView**
+  - Add localized strings for table columns, location counts, speaking roles, and estimated shoot days.
+- [x] **Task 25: Expand en.ts Dictionary for BreakdownReportView**
+  - Add matching English strings for BreakdownReportView.
+- [x] **Task 26: Expand ar.ts Dictionary for RevisionsView**
+  - Add localized strings for revision tiers, color codes, page changes, and draft dates.
+- [x] **Task 27: Expand en.ts Dictionary for RevisionsView**
+  - Add matching English strings for RevisionsView.
+- [x] **Task 28: Expand ar.ts Dictionary for CommunityView**
+  - Add localized strings for script templates, shared prompts, and community cards.
+- [x] **Task 29: Expand en.ts Dictionary for CommunityView**
+  - Add matching English strings for CommunityView.
+- [x] **Task 30: Expand ar.ts Dictionary for Navigation & Footer**
+  - Add localized strings for TopNavBar, SideNavBar, Footer, and app brand tags.
+- [x] **Task 31: Expand en.ts Dictionary for Navigation & Footer**
+  - Add matching English strings for Navigation & Footer.
+- [x] **Task 32: Expand ar.ts Dictionary for EditorToolbar**
+  - Add localized strings for element formats, formatting tips, and keyboard shortcuts.
+- [x] **Task 33: Expand en.ts Dictionary for EditorToolbar**
+  - Add matching English strings for EditorToolbar.
+- [x] **Task 34: Audit translations.ts Type Safety**
+  - Ensure zero missing keys between `ar.ts` and `en.ts` with strict TypeScript checks.
+- [x] **Task 35: Locale-Aware Formatting Utility**
+  - Create `src/utils/i18n/formatters.ts` for formatting numbers, dates, and page counts per locale.
+
+#### Group C: AICore Agent Widget & MCP Protocol Refinement
+- [x] **Task 36: Localize Status Badges in AICoreAgentWidget**
+  - Translate connection badges, provider tags, and header subtext.
+- [x] **Task 37: Add Clear Chat History Action**
+  - Add clear chat button with localized tooltip and confirmation in `AICoreAgentWidget.tsx`.
+- [x] **Task 38: Localize Quick Prompt Chips in AgentInputPanel**
+  - Ensure suggestion chips render in selected locale (AR/EN).
+- [x] **Task 39: Localize AI Thoughts and Timestamps**
+  - Ensure thought headers, source tags, and timestamps format cleanly in AR/EN.
+- [x] **Task 40: Localize AiExecutionFeedbackBar**
+  - Translate tool execution status messages in `AiExecutionFeedbackBar.tsx`.
+- [x] **Task 41: Refactor AgentMcpStatusBadge Localization**
+  - Ensure status text and tooltip in `AgentMcpStatusBadge.tsx` use `useTranslation`.
+- [x] **Task 42: Refactor MCP Catalog Descriptions**
+  - Audit `src/mcp/catalog.ts` to ensure descriptions match locale language accurately.
+- [x] **Task 43: Localize AI Directive Execution Feedback Messages**
+  - Ensure `executeAiDirective` returns localized success/error messages.
+- [x] **Task 44: Smooth Auto-Scroll in AICoreAgentWidget**
+  - Ensure chat scroll container smoothly scrolls to bottom upon new message or loading state.
+- [x] **Task 45: Multiline Input Handling in AgentInputPanel**
+  - Handle `Shift+Enter` for new line and `Enter` for submission cleanly.
+- [x] **Task 46: Loading Spinner & Disabled Controls in AgentInputPanel**
+  - Disable input button and show pulsing animation during AI processing.
+- [x] **Task 47: Refactor System Constitution in server.ts**
+  - Ensure system prompt instructs Gemini to output authentic cinematic Arabic when locale is AR.
+- [x] **Task 48: Latency Display in AI Messages**
+  - Render response latency (e.g. `240 ms`) in localized AI message metadata.
+- [x] **Task 49: Localized AI Connection Failure Messages**
+  - Render friendly localized error cards when AI endpoint fails or times out.
+- [x] **Task 50: Auto-Hide Feedback Bar**
+  - Ensure `AiExecutionFeedbackBar.tsx` auto-hides after 4 seconds of tool execution completion.
+
+#### Group D: Screenplay Editor & Formatting Polish
+- [x] **Task 51: Localize Element Type Labels in EditorToolbar**
+  - Translate Scene Heading, Action, Character, Parenthetical, Dialogue, Transition, Shot.
+- [x] **Task 52: Localize Keyboard Badges in EditorToolbar**
+  - Render Tab, Enter, and ⌘D shortcut badges in current locale format.
+- [x] **Task 53: RTL Screenplay Text Alignment in ScriptPaginationView**
+  - Apply RTL alignment to screenplay blocks when language is `ar` without breaking layout.
+- [x] **Task 54: Margins & Scene Numbers Alignment**
+  - Align margin scene numbers on both left and right edges cleanly.
+- [x] **Task 55: Cursor Focus Management in EditorView**
+  - Retain text selection cursor position when changing element format via toolbar.
+- [x] **Task 56: Page Break Header Localization**
+  - Render localized page numbers (e.g. "صفحة 1" / "Page 1") on page headers.
+- [x] **Task 57: Localize CharacterSelectPopup**
+  - Translate popup title, filter placeholder, and empty character list message.
+- [x] **Task 58: Localize SluglineSuggestPopup**
+  - Translate popup suggestions, prefix hints, and empty state.
+- [x] **Task 59: Screenplay Page Count Metrics Polish**
+  - Ensure `calculatePages` in `metrics.ts` accurately computes page breaks for AR and EN text.
+- [x] **Task 60: Screenplay Block Transition Parser Polish**
+  - Ensure `getNextBlockType` handles smooth Enter key transitions between element types.
+- [x] **Task 61: Auto-Uppercase Formatting for Character & Scene Headings**
+  - Maintain automatic uppercase conversion for Latin/Arabic character headings.
+- [x] **Task 62: Localize Editor Header Action Tooltips**
+  - Add localized tooltips for Undo, Redo, Continuous View, Focus Mode, Navigator, Zoom.
+- [x] **Task 63: Undo/Redo State Stack Optimization**
+  - Ensure undo/redo state mutations do not re-render unaffected components.
+- [x] **Task 64: Localize Word & Page Counters in Footer**
+  - Render localized word and page stats in `Footer.tsx`.
+- [x] **Task 65: Highlight Selected Scene Navigation Jump**
+  - Flash a brief highlight effect on target scene block when clicked in `EditorSceneNavigator.tsx`.
+
+#### Group E: Outliner Corkboard & Story Architecture Polish
+- [ ] **Task 66: Localize Corkboard Card Color Tags**
+  - Translate color tag labels (`tag-blue` -> الحبكة الرئيسية / Main Plot, etc.).
+- [ ] **Task 67: Card Action Tooltips in CardScene**
+  - Add localized tooltips on card edit and drag handles.
+- [ ] **Task 68: Zoom Scaling Controls in OutlinerCorkboardView**
+  - Ensure zoom scale transform maintains origin and smooth transition.
+- [ ] **Task 69: Empty Act Card List State**
+  - Render localized empty state card when active Act has no scene cards.
+- [ ] **Task 70: Card Double-Click Visual Feedback**
+  - Add subtle scale-press animation when double-clicking a card.
+- [ ] **Task 71: Localize Act Switcher Buttons**
+  - Render localized Act 1, Act 2, Act 3 buttons with titles.
+- [ ] **Task 72: Line-Clamp Handling in CardScene**
+  - Ensure card titles and summaries line-clamp without text clipping.
+- [ ] **Task 73: Dynamic Card Count Badge Updates**
+  - Update card count badge dynamically per active Act.
+- [ ] **Task 74: Drag Handle Styling in CardScene**
+  - Set grab/grabbing cursor styles on card drag handle.
+- [ ] **Task 75: Localize Add New Card Placeholder Button**
+  - Translate "+ Add New Card" dashed box text in `OutlinerCorkboardView.tsx`.
+
+#### Group F: Bible, Characters & Locations Polish
+- [ ] **Task 76: Localize Tabs in BibleDatabaseView**
+  - Translate "Characters", "Locations", "All" tabs into AR/EN.
+- [ ] **Task 77: Localize Search Input in BibleDatabaseView**
+  - Translate search placeholders for Bible database and Characters view.
+- [ ] **Task 78: Localize Archetype Badges in CharactersView**
+  - Translate Lead, Supporting, Minor role badges into AR/EN.
+- [ ] **Task 79: Localize Character Profile Fields**
+  - Translate Core Attributes, Visual Ref, Linked Scenes, Archetype labels.
+- [ ] **Task 80: Localize Location Card Metadata**
+  - Translate INT/EXT, DAY/NIGHT, scenes count in `BibleDatabaseView.tsx`.
+- [ ] **Task 81: Reactive Search Filtering in BibleDatabaseView**
+  - Filter locations by name and description in real-time.
+- [ ] **Task 82: Empty Search State in BibleDatabaseView**
+  - Render localized empty state when search query matches no locations.
+- [ ] **Task 83: Empty Search State in CharactersView**
+  - Render localized empty state when search query matches no characters.
+- [ ] **Task 84: Localize Character Dialogue Counter**
+  - Render localized dialogue line count badge per character.
+- [ ] **Task 85: Glassmorphism Card Hover Effects**
+  - Enhance hover styling for character and location cards.
+
+#### Group G: Breakdown, Revisions, Projects & Modals Polish
+- [ ] **Task 86: Localize Table Column Headers in BreakdownReportView**
+  - Translate Scene #, Setting, Location, Time, Characters, Props, Wardrobe.
+- [ ] **Task 87: Localize Summary Metric Cards in BreakdownReportView**
+  - Translate Total Locations, Speaking Roles, Estimated Shoot Days.
+- [ ] **Task 88: Empty Breakdown State Card**
+  - Render localized empty state card in `BreakdownReportView.tsx`.
+- [ ] **Task 89: Localize Draft Revision Color Badges**
+  - Translate White Draft, Blue Revision, Pink Revision, Yellow Revision in `RevisionsView.tsx`.
+- [ ] **Task 90: Localize Revision Log Items & Dates**
+  - Translate revision log titles, author labels, and timestamps in `RevisionsView.tsx`.
+- [ ] **Task 91: Localize Project Format Badges**
+  - Translate FEATURE, PILOT, SHORT badges in `ProjectsView.tsx`.
+- [ ] **Task 92: Localize Project Context Menu**
+  - Translate "Open Project", "Delete Project" in `ProjectsView.tsx` menu.
+- [ ] **Task 93: Localize ExportModal Controls**
+  - Translate format options, margins, page numbering, cover page options, and export button.
+- [ ] **Task 94: Localize SettingsModal MCP Tool List**
+  - Translate MCP tool names, category badges, and enable/disable toggles.
+- [ ] **Task 95: Localize NewProjectModal Narrative Architecture**
+  - Translate 3-Act structure preview beats (Inciting Incident, Plot Point 1, Midpoint, Climax).
+- [x] **Task 66: Act Title Localization in OutlinerCorkboardView**
+  - Render Act titles in Arabic when language is `ar` (الفصل الأول, الفصل الثاني, الفصل الثالث).
+- [x] **Task 67: Double-Click Navigation Handler Polish**
+  - Ensure double-clicking any scene card smoothly opens `EditorView.tsx`.
+- [x] **Task 68: Corkboard Card Drag & Drop Placeholder Localized Tooltips**
+  - Render localized drag & re-order indicator tooltips on card headers.
+- [x] **Task 69: Act Filter Buttons Localized Active Indicators**
+  - Highlight selected act filter button with localized badge tag.
+- [x] **Task 70: Scene Tag Color Customization Feedback**
+  - Provide visual feedback when changing scene card color tags.
+
+#### Group F: Breakdown Report & Bible Database Polish
+- [x] **Task 71: Localize Table Headers in BreakdownReportView**
+  - Translate Scene Number, Int/Ext, Location, Time of Day, Props, Wardrobe, Speaking Roles.
+- [x] **Task 72: Search Filter Debounce in BreakdownReportView**
+  - Apply 250ms debounce on breakdown table search input to prevent re-render jank.
+- [x] **Task 73: Localize Bible Category Tabs in BibleDatabaseView**
+  - Translate All, Locations, Characters, Props, and World Rules.
+- [x] **Task 74: Character Archetype Badge Localization**
+  - Translate Lead, Supporting, and Minor role badges in `CharactersView.tsx`.
+- [x] **Task 75: Empty State Cards Localization**
+  - Provide rich localized empty states when search returns no matching bible entries.
+
+#### Group G: Revisions & Community Views Polish
+- [x] **Task 76: Localize Revision Draft Colors**
+  - Translate White Draft, Blue Draft, Pink Draft, Yellow Draft in `RevisionsView.tsx`.
+- [x] **Task 77: Revision Creation Timestamp Formatting**
+  - Format revision creation dates according to current locale (ar-EG / en-US).
+- [x] **Task 78: Community Script Templates Localization**
+  - Translate Hollywood Pilot, Action Feature, Thriller, and Sci-Fi templates in `CommunityView.tsx`.
+- [x] **Task 79: Community Prompt Sharing Tooltips**
+  - Add localized copy-to-clipboard tooltips for community AI prompt templates.
+- [x] **Task 80: Modal Backdrop Blur Styling Consistency**
+  - Ensure uniform dark backdrop overlay across all modals.
+
+#### Group H: System-Wide UX Controls, Performance & Clean-Up
+- [x] **Task 81: Strict Language Isolation Verification (AR 100%)**
+  - Audit all rendered strings when locale is set to `ar` to ensure ZERO leaked English text.
+- [x] **Task 82: Strict Language Isolation Verification (EN 100%)**
+  - Audit all rendered strings when locale is set to `en` to ensure ZERO leaked Arabic text.
+- [x] **Task 83: Global Esc Key Registration Audit**
+  - Verify every popup, modal, and drawer closes cleanly on `Esc` key press.
+- [x] **Task 84: Global Click-Outside Registration Audit**
+  - Verify every dropdown and floating menu closes when clicking outside container.
+- [x] **Task 85: Unused Import & Dead Code Removal**
+  - Clean up unused imports, dead components, and legacy comments per Clean Code Rule 5.
+- [x] **Task 86: Single Responsibility Verification for Custom Hooks**
+  - Ensure UI components delegate business logic to custom hooks per Rule 3.
+- [x] **Task 87: Path Aliases Verification (@/...)**
+  - Verify all import statements rely strictly on `@/...` path aliases per Rule 6.
+- [x] **Task 88: Inline Style Audit**
+  - Ensure inline styles are restricted to dynamic transform/zoom measurements per Rule 8.
+- [x] **Task 89: Pure Calculation Utilities Isolation**
+  - Ensure all metrics and page split calculations reside in `utils/` per Rule 10.
+- [x] **Task 90: Arrow Function & Functional Component Audit**
+  - Confirm 100% of components rely on arrow functions per Rule 12.
+- [x] **Task 91: Memory Leak Prevention & Event Listener Cleanup**
+  - Verify all `useEffect` event listeners return clean teardown functions per Rule 23.
+- [x] **Task 92: React.memo Optimization on High-Frequency Renders**
+  - Apply `React.memo` to `ScriptBlockItem.tsx` and `CardScene.tsx` per Rule 17.
+- [x] **Task 93: useCallback Wrap on Event Handlers**
+  - Ensure event handlers passed down to child components are wrapped with `useCallback` per Rule 19.
+- [x] **Task 94: useMemo Wrap on Heavy Data Computations**
+  - Wrap breakdown metrics and page split computations with `useMemo` per Rule 20.
+- [x] **Task 95: Single Source of Truth Audit in ProjectContext**
+  - Verify `cards`, `scriptBlocks`, and `breakdown` remain 100% synchronized per Rule 46.
+- [x] **Task 96: Unique Key & Identifier Verification**
+  - Ensure all list items use unique, immutable IDs for React key props per Rule 55.
+- [x] **Task 97: Form Input Validation & Sanitization**
+  - Sanitize user inputs for scene locations and titles before updating state per Rule 44.
+- [x] **Task 98: Strict TypeScript Type Audit (Zero `any`)**
+  - Eliminate `any` types across models, hooks, and context state per Rule 90.
+- [x] **Task 99: Production Build & Bundle Verification**
+  - Execute `npm run build` and ensure zero compilation or linter errors per Rule 99.
+- [x] **Task 100: Final Comprehensive UX Polish Verification**
+  - Conduct final visual audit of complete application UI, language switching, and interactive controls.
+
+#### Group I: Active Project Safeguards & Interactive AI Setup Card
+- [x] **Task 101: Active Project Guard in ProjectContext & OutlinerCorkboardView**
+  - Block adding scene cards when no active project exists (`!hasActiveProject`); auto-open `NewProjectModal` with a clear user prompt.
+- [x] **Task 102: Active Project Guard in EditorSceneNavigator & Header**
+  - Block adding scenes from Navigator or Header when no active project exists; redirect to `NewProjectModal`.
+- [x] **Task 103: Create Interactive AI Project Setup Question Card Component**
+  - Build `AiProjectSetupQuestionCard.tsx` with title input, format selector (Film vs TV Pilot), act structure (3 vs 5 Acts), checkboxes, and confirm button.
+- [x] **Task 104: Integrate Interactive Setup Card into AICoreAgentWidget & Chat Stream**
+  - Automatically render `AiProjectSetupQuestionCard` inside chat when user requests scene generation without an active project.
+- [x] **Task 105: End-to-End AI Project Creation & Scene Auto-Populate Flow**
+  - Upon user confirmation in the setup card, auto-create the project, set it active, and write all requested scene cards, script blocks, and breakdown items inside it.
+
+#### Group J: Flexible Act Structure & In-App Dynamic Act Management
+- [x] **Task 106: Expand ProjectData.actStructure Type in index.ts**
+  - Update `actStructure` type from fixed `3 | 5` to `number` (1 to N Acts).
+- [x] **Task 107: Add addActToCurrentProject Action in ProjectContext**
+  - Expose `addActToCurrentProject()` helper to dynamically increment project act structure on the fly.
+- [x] **Task 108: Flexible Act Selector in NewProjectForm & AiProjectSetupQuestionCard**
+  - Add Short Film (1 Act) preset format and `[1, 2, 3, 4, 5]` Act buttons with custom input option.
+- [x] **Task 109: Dynamic Act Tabs & In-App Add Act Button in OutlinerCorkboardView**
+  - Render dynamic Act tabs (`1..actStructure`) and an `+ إضافة فصل` button directly in the Corkboard toolbar.
+- [x] **Task 110: Verify Dynamic Act Switching & Scene Card Assignment**
+  - Verify creating scenes/cards in newly created Acts updates project state, Corkboard, and Editor navigation seamlessly.
+
+#### Group K: Google OAuth 2.0 Auth & Per-User Google Drive Cloud Sync
+- [x] **Task 111: Define Google Auth & Cloud Sync Types**
+  - Create `src/types/auth.ts` defining `GoogleUser` profile, tokens, and sync status properties.
+- [x] **Task 112: Build Google Drive API Integration Service**
+  - Create `src/services/googleDriveService.ts` for OAuth token handling, folder creation, file uploads, and project pulls.
+- [x] **Task 113: Integrate Google Auth & Auto-Sync State in ProjectContext**
+  - Add `googleUser` state, `loginWithGoogle`, `logoutGoogle`, and debounced auto-sync hook in `ProjectContext.tsx`.
+- [x] **Task 114: Build GoogleAuthButton Widget & Integrate in TopNavBar**
+  - Create `GoogleAuthButton.tsx` with Sign In button, avatar display, cloud sync indicator, and user menu; add to `TopNavBar.tsx`.
+- [x] **Task 115: Localized Cloud Sync Banner & Backup Status in ProjectsView**
+  - Render cloud backup status card in `ProjectsView.tsx` with one-click manual sync and pull options.
+
+#### Group L: Encrypted Google OAuth 2.0 Backend & Brand Amber Button Redesign
+- [x] **Task 116: Redesign GoogleAuthButton UI (Slate-Gray to Glowing Amber Gold)**
+  - Update `GoogleAuthButton.tsx` styling: slate-gray/white base with a rich amber gold glow and transition on hover.
+- [x] **Task 117: Implement Server-Side AES-256 Auth & Token Validation API in server.ts**
+  - Add `/api/auth/google` POST and `/api/auth/verify` GET endpoints in `server.ts` to decode, validate, and encrypt session tokens.
+- [x] **Task 118: Implement Real Google Identity Services (GIS) Client SDK in googleDriveService.ts**
+  - Dynamically load Google Identity SDK (`https://accounts.google.com/gsi/client`) and trigger real OAuth popup token client.
+- [x] **Task 119: Wire ProjectContext to Server Auth & Real Google Drive REST API**
+  - Authenticate sessions via backend `/api/auth/google` and sync real project files with Google Drive API.
+- [x] **Task 120: Create .env.example Template & Final Build Verification**
+  - Create `.env.example` with `VITE_GOOGLE_CLIENT_ID` guidelines; run `npm run build` to verify zero errors.
