@@ -176,7 +176,7 @@ async function generateWithGeminiFallback(ai: GoogleGenAI, contents: string, sys
 
 async function startServer() {
   const app = express();
-  const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3005;
+  const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
   app.use(express.json({ limit: '10mb' }));
 

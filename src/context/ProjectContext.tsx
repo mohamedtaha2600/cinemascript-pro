@@ -66,11 +66,11 @@ export interface ProjectContextType {
   toggleLanguage: () => void;
   setActiveView: (view: ViewMode) => void;
   setSearchQuery: (query: string) => void;
-  setIsExportOpen: (open: boolean) => void;
-  setIsNewProjectOpen: (open: boolean) => void;
-  setIsNewSceneOpen: (open: boolean) => void;
-  setIsSettingsOpen: (open: boolean) => void;
-  setIsAiAgentOpen: (open: boolean) => void;
+  setIsExportOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsNewProjectOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsNewSceneOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSettingsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsAiAgentOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentProjectId: (id: string) => void;
   updateScriptBlocks: (blocks: ScriptBlock[]) => void;
   addScriptBlock: (block: Omit<ScriptBlock, 'id'>) => void;
